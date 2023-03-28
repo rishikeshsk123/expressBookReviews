@@ -13,13 +13,13 @@ public_users.post("/register", (req,res) => {
   if(username && password){
     if(!isValid(username)){
       users.push({"username": username, "password": password});
-      return res.status(200).json({message: "User registered successfully"})
+      return res.status(200).json({message: "Customer registered successfully"})
     } else {
-      return res.status(404).json({message: "User already exists"})
+      return res.status(404).json({message: "Customer already exists"})
     }
   }
   
-  return res.status(404).json({message: "Unable to register user"});
+  return res.status(404).json({message: "Unable to register customer"});
 });
 
 // Get the book list available in the shop
@@ -78,7 +78,7 @@ public_users.get('/review/:isbn',function (req, res) {
   //Write your code here
   const get_books = new Promise((resolve, reject)=>{
       const isbn = req.params.isbn;
-      resolve(res.send(books[isbn].review))
+      resolve(res.send(books[isbn].reviews))
   })
 });
 
